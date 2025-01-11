@@ -1,0 +1,64 @@
+<h2>From {{product.id>0?'Update':'Create'}}</h2>
+<form  (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
+    <div>
+        <input class="form-control my-2"
+        placeholder="Nombre"
+        name="name"
+        #name="ngModel"
+        required
+        minlength="4"
+        [(ngModel)]="product.name">
+        @if(name.invalid && (name.dirty || name.touched)){
+            <div class="text-danger">
+                @if (name.errors!['required']) {
+                    Name es requerido!
+                }
+                @if (name.errors!['minlength']) {
+                    Name debe tener al menos 4 caracteres!
+                }
+            </div>
+        }
+    </div>
+    <div>
+        <input class="form-control my-2"
+        placeholder="Descripción"
+        name="description"
+        #description="ngModel"
+        required
+        [(ngModel)]="product.description">
+        @if(description.invalid && (description.dirty || description.touched)){
+            <div class="text-danger">
+                @if (description.errors!['required']) {
+                    Descripción es requerido!
+                }
+            </div>
+        }
+    </div>
+    <div>
+        <input class="form-control my-2"
+        type="number"
+        placeholder="Precio"
+        name="price"
+        #price="ngModel"
+        required
+        min="10"
+        [(ngModel)]="product.price">
+        @if(price.invalid && (price.dirty || price.touched)){
+            <div class="text-danger">
+                @if (price.errors!['required']) {
+                    Precio es requerido!
+                }
+                @if (price.errors!['min']) {
+                    Precio debe ser mayor a 10!
+                }
+            </div>        
+        }
+    </div>
+    <div>
+        <button type="submit"
+        [disabled]="!productForm.form.valid"
+        class="btn btn-primary my-2">
+            {{product.id>0?'Update':'Create'}}
+        </button>
+    </div>
+</form>
