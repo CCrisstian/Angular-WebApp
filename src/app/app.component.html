@@ -3,9 +3,12 @@
 <div class="container py-4">
     <div class="row">
         <div class="col">
-            <table-product [products]="products"> 
-
-            </table-product>
+            <product-form (addProductEvent)="addProduct($event)" [product]="productSelected"/>
+        </div>
+        <div class="col">
+            <table-product [products]="products"
+            (updateProductEvent)="onUpdateProductEvent($event)"
+            (removeProductEvent)="onRemoveProductEvent($event)"/>
         </div>
     </div>
 </div>
