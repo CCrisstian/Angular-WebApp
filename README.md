@@ -5,4 +5,6 @@
 
 <h2><ins>Descripción de cada herramienta utilizada en este proyecto</ins></h2>
 
+<img src="https://skillicons.dev/icons?i=angular&perline=14" /> **Angular**: 
+
 <h2><ins>Imagenes del Proyecto</ins></h2>
