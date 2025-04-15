@@ -7,6 +7,6 @@
 
 <img src="https://skillicons.dev/icons?i=angular&perline=14" /> **Angular**:
 
-<img src="https://skillicons.dev/icons?i=nodejs&perline=14" /> **Node.js**: 
+<img src="https://skillicons.dev/icons?i=nodejs&perline=14" /> **Node.js** (v22.12.0): 
 
 <h2><ins>Imagenes del Proyecto</ins></h2>
