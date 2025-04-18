@@ -18,3 +18,35 @@
 <img src="https://skillicons.dev/icons?i=npm&perline=14" /> **npm** (v10.9.0) [**Node Package Manager**]: Gestor de paquetes para **Node.js** que permite instalar y administrar dependencias necesarias para el desarrollo del proyecto. Se encarga de manejar bibliotecas, herramientas y scripts asociados al entorno de **Angular**.
 
 <h2><ins>Imagenes del Proyecto</ins></h2>
+
+<h1 align="center">Jerarquía de Componentes dentro del Proyecto</h1>
+<p>Este proyecto <b>Frontend</b> en <b>React</b> sigue una estructura clara basada en componentes y servicios, separando la lógica de negocio de la interfaz visual.</p>
+
+```javascript
+src/
+└── app/
+    ├── app.component.ts            ← Componente raíz del proyecto
+    ├── app.component.html          ← Plantilla del componente raíz
+    │    └── Organiza la interfaz principal, integrando los componentes hijos
+    │    └── Maneja la lógica para agregar, actualizar y eliminar productos
+    │
+    ├── components/
+    │   ├── form.component.ts       ← Lógica del formulario (crear/editar)
+    │   ├── form.component.html     ← Plantilla del formulario
+    │   │    └── Usa Angular Forms con validaciones reactivas y dinámicas
+    │   │    └── Emite `addProductEvent` al enviar el formulario
+    │   │
+    │   ├── products.component.ts   ← Lógica del componente de tabla/listado
+    │   ├── products.component.html ← Plantilla de la tabla
+    │        └── Muestra productos en formato tabular
+    │        └── Emite eventos `updateProductEvent` y `removeProductEvent`
+    │
+    ├── services/
+    │   └── product.service.ts      ← Servicio que maneja la lógica HTTP:
+    │         • findAll(), create(), update(), remove()
+    │         • Usa HttpClient para conectar con la API RESTful en Spring Boot
+    │
+    ├── models/
+    │   └── product.ts              ← Modelo de producto:
+    │         • Define id, name, description, price
+```
