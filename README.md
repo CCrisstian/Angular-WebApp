@@ -31,28 +31,36 @@
 ```javascript
 src/
 └── app/
-    ├── app.component.ts            ← Componente raíz del proyecto
-    ├── app.component.html          ← Plantilla del componente raíz
-    │    └── Organiza la interfaz principal, integrando los componentes hijos
-    │    └── Maneja la lógica para agregar, actualizar y eliminar productos
+    ├── app.component.ts / app.component.html         ← Componente raíz ("Padre")
+    │    └── Orquesta la aplicación: 
+    │        mantiene el estado global de productos y coordina acciones.
+    │        Contiene y comunica con los componentes hijos.
     │
     ├── components/
-    │   ├── form.component.ts       ← Lógica del formulario (crear/editar)
-    │   ├── form.component.html     ← Plantilla del formulario
-    │   │    └── Usa Angular Forms con validaciones reactivas y dinámicas
-    │   │    └── Emite `addProductEvent` al enviar el formulario
+    │   ├── form.component.ts / form.component.html   ← Componente "Hijo" (Formulario)
+    │   │    └── Permite crear o actualizar productos.
+    │   │        Recibe un producto como @Input() y emite uno nuevo con @Output().
     │   │
-    │   ├── products.component.ts   ← Lógica del componente de tabla/listado
-    │   ├── products.component.html ← Plantilla de la tabla
-    │        └── Muestra productos en formato tabular
-    │        └── Emite eventos `updateProductEvent` y `removeProductEvent`
+    │   ├── products.component.ts / products.component.html ← Componente "Hijo" (Tabla)
+    │        └── Muestra los productos en una tabla.
+    │            Emite eventos para editar o eliminar un producto.
     │
     ├── services/
-    │   └── product.service.ts      ← Servicio que maneja la lógica HTTP:
-    │         • findAll(), create(), update(), remove()
-    │         • Usa HttpClient para conectar con la API RESTful en Spring Boot
+    │   └── product.service.ts                        ← Servicio
+    │        └── Encapsula la lógica de comunicación con el backend:
+    │            operaciones HTTP (GET, POST, PUT, DELETE).
     │
     ├── models/
-        └── product.ts              ← Modelo de producto:
-              • Define id, name, description, price
+    │   └── product.ts                                 ← Modelo de datos
+    │        └── Define la estructura de un producto: id, name, description, price.
 ```
+
+### 🧩 Descripción funcional de cada componente
+
+| Componente             | Descripción breve                                                                 |
+|------------------------|-----------------------------------------------------------------------------------|
+| **AppComponent**       | Componente principal del proyecto. Coordina el flujo de datos y renderiza hijos.  |
+| **FormComponent**      | Componente 'hijo' encargado del formulario para crear o editar productos.         |
+| **ProductsComponent**  | Componente 'hijo' que muestra los productos en una tabla con opciones de acción.  |
+| **ProductService**     | Servicio que centraliza la lógica HTTP para interactuar con la API backend.       |
+| **Product (Model)**    | Define la entidad de producto utilizada en el formulario y la tabla.              |
