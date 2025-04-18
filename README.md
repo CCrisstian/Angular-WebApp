@@ -53,6 +53,6 @@ src/
     │         • Usa HttpClient para conectar con la API RESTful en Spring Boot
     │
     ├── models/
-    │   └── product.ts              ← Modelo de producto:
-    │         • Define id, name, description, price
+        └── product.ts              ← Modelo de producto:
+              • Define id, name, description, price
 ```
