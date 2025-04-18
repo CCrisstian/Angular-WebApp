@@ -55,7 +55,7 @@ src/
     │        └── Define la estructura de un producto: id, name, description, price.
 ```
 
-### 🧩 Descripción funcional de cada componente
+<h2>🧩 <ins>Descripción funcional de cada componente</ins></h2>
 
 | Componente             | Descripción breve                                                                 |
 |------------------------|-----------------------------------------------------------------------------------|
