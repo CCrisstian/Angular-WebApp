@@ -1,14 +1,22 @@
-<h1 style="text-align: center;">{{title}}</h1>
+<h1 style="text-align: center">
+    {{title}}  
+    <img src="https://skillicons.dev/icons?i=angular" width="60" />
+</h1>
 
 <div class="container py-4">
     <div class="row">
-        <div class="col">
-            <product-form (addProductEvent)="addProduct($event)" [product]="productSelected"/>
+        <div class="col-4">
+            <product-form
+                (addProductEvent)="addProduct($event)" 
+                [product]="productSelected"
+            />
         </div>
         <div class="col">
-            <table-product [products]="products"
-            (updateProductEvent)="onUpdateProductEvent($event)"
-            (removeProductEvent)="onRemoveProductEvent($event)"/>
+            <table-product 
+                [products]="products"   
+                (updateProductEvent)="onUpdateProductEvent($event)"
+                (removeProductEvent)="onRemoveProductEvent($event)" 
+            />
         </div>
     </div>
 </div>

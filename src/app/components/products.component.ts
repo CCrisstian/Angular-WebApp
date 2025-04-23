@@ -6,15 +6,14 @@ import { EventDispatcher } from '@angular/core/primitives/event-dispatch';
   selector: 'table-product',
   imports: [],
   templateUrl: './products.component.html',
+  styleUrl: './products.component.css'
 })
 
 export class ProductsComponent {
+  
   title = 'Listado de Productos';
-
   @Input() products: Product[] = [];
-
   @Output() updateProductEvent = new EventEmitter();
-
   @Output() removeProductEvent = new EventEmitter();
   
   onUpdateProduct(product: Product): void {

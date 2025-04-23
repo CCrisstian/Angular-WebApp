@@ -6,12 +6,12 @@ import { FormsModule, NgForm } from '@angular/forms';
   selector: 'product-form',
   imports: [FormsModule],
   templateUrl: './form.component.html',
+  styleUrl: './form.component.css'
 })
 
 export class FormComponent {
 
   @Input() product: Product = new Product();
-
   @Output() addProductEvent = new EventEmitter();
 
   onSubmit(productForm: NgForm): void {

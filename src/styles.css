@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:host {
+    display: block;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #007BFF, #0D47A1);
+    color: white;
+  }
+  

@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProductsComponent } from "./components/products.component";
 import { Product } from './models/product';
@@ -15,34 +15,14 @@ import { ProductService } from './services/product.service';
 
 export class AppComponent implements OnInit {
 
-  title = 'Proyecto: "Angular-Products"';
-
+  title = 'Proyecto Frontend con Angular';
   products: Product[] = [];
-
-  countId = signal(3);
-
   productSelected: Product = new Product();
 
   constructor(private service: ProductService) { }
 
   ngOnInit(): void {
-
     this.service.findAll().subscribe(products => this.products = products);
-
-    // this.products = [
-    //   {
-    //     id: 1,
-    //     name: 'Monitor Asus 35 pulgadas',
-    //     description: 'El monitor es perfecto para juegos en alta resolución!',
-    //     price: 1000
-    //   },
-    //   {
-    //     id: 2,
-    //     name: 'Iphone 16 Pro',
-    //     description: 'El smartphone es excelente e incluye Apple Intelligence',
-    //     price: 1700
-    //   }
-    // ]
   }
 
   onUpdateProductEvent(product: Product): void {
@@ -50,10 +30,8 @@ export class AppComponent implements OnInit {
   }
 
   addProduct(product: Product): void {
-
     if (product.id > 0) {
       this.service.update(product).subscribe(productUpdated => {
-
         this.products = this.products.map(prod => {
           if (prod.id == product.id) {
             return { ...productUpdated }
@@ -67,10 +45,8 @@ export class AppComponent implements OnInit {
           icon: "success"
         });
       })
-
     } else {
       this.service.create(product).subscribe(productNew => {
-
         this.products = [... this.products, { ...productNew }];
 
         Swal.fire({
@@ -82,9 +58,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-
   onRemoveProductEvent(id: number): void {
-
     Swal.fire({
       title: "¿Estás seguro que quieres eliminar?",
       text: "No serás capas de revertir esto!",
@@ -97,7 +71,6 @@ export class AppComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.service.remove(id).subscribe(productDeleted => {
-
           this.products = this.products.filter(product => product.id != id);
 
           Swal.fire({

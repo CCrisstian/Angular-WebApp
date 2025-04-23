@@ -1,33 +1,39 @@
-<h2>{{title}}</h2>
+<h2 style="text-align: center;">{{title}}</h2>
 
 @if(products.length>0){
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>description</th>
-            <th>price</th>
-            <th>update</th>
-            <th>remove</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for(product of products; track $index){
-        <tr>
-            <td>{{product.id}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.price}}</td>
-            <td><button class="btn btn-sm btn-primary" (click)="onUpdateProduct(product)">Update</button></td>
-            <td><button class="btn btn-sm btn-danger" (click)="onRemoveProduct(product.id)">Remove</button></td>
-        </tr>
-        }
-    </tbody>
-</table>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(product of products; track $index){
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" (click)="onUpdateProduct(product)"> Actualizar </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" (click)="onRemoveProduct(product.id)"> Eliminar </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 } @else {
-    <div class="alert alert-danger" style="text-align: center;">
-        Lo sentimos no hay registros en el sistema
-        <img src="images/image.png" alt="Descripción de la imagen" style="width: 80%;" />
+    <div class="alert alert-danger text-center">
+        <span style="color: red;">
+            Lo sentimos no hay registros en el sistema
+        </span>
+        <img src="images/CatAskingForFood.gif" alt="Cat Asking For Food" style="width: 80%;" />
     </div>
 }
