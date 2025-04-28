@@ -166,16 +166,36 @@ src/
     - **Título dinámico**:
       - Muestra `"Actualizar"` o `"Crear"` dependiendo de si el producto tiene un id mayor a 0 (`product.id > 0`).
     - **Formulario** (`<form>`):
-      - Se vincula al método onSubmit(productForm) para enviar los datos.
-      - Utiliza template-driven forms (#productForm="ngForm") para manejar el estado y validación del formulario.
+      - Se vincula al método `onSubmit(productForm)` para **enviar los datos**.
+      - Utiliza **template-driven forms** (`#productForm="ngForm"`) para **manejar el estado** y **validación del formulario**.
     - **Campos del formulario**:
       - **Nombre** (`name`):
+        - Campo de **texto obligatorio** (`required`) y con **mínimo de 4 caracteres** (`minlength="4"`).
+        - Muestra **mensajes de error** si no cumple las validaciones.
       - **Descripción** (`description`):
+        - Campo de **texto obligatorio** (`required`).
+        - Muestra mensaje si falta completar la descripción.
       - **Precio** (`price`):
+        - Campo **numérico obligatorio** (`required`) y debe ser **mayor a 10** (`min="10"`).
+        - Muestra errores si no se cumple alguna de estas reglas.
     - **Botón de envío** (`button`):
+      - El botón cambia su texto a `"Actualizar"` o `"Crear"`, igual que el título.
+      - El botón se desactiva (`[disabled]`) si el formulario no es válido (`productForm.form.invalid`).
     - **Validaciones en pantalla**:
+      - Usando directivas de **Angular** (`@if`) muestra **mensajes de error** en tiempo real cuando el usuario interactúa con cada campo.
 
 <h2>products.component.ts / products.component.html</h2>
+
+- `products.component.ts` - Tabla de productos
+  - **Función**: Controla el **listado de productos**, permitiendo seleccionar uno para **actualizarlo** o **eliminar** uno.
+  - **Responsabilidades principales**:
+    - **Título interno**:
+    - **Entrada de datos** (`@Input`):
+    - **Salida de eventos** (`@Output`):
+    - **Métodos**:
+
+- `products.component.html`
+
 <h2>product.service.ts</h2>
 <h2>product.ts</h2>
 
