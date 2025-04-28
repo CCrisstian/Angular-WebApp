@@ -109,6 +109,45 @@ src/
 | **ProductService**     | Servicio que centraliza la lógica HTTP para interactuar con la API backend.       |
 | **Product (Model)**    | Define la entidad de producto utilizada en el formulario y la tabla.              |
 
+<h1 align="center">Descripción de cada Componente dentro del Proyecto</h1>
+
+<h2>app.component.ts / app.component.html (Componente raíz/padre)</h2>
+
+- `app.component.ts`
+  - **Función**: Coordina el flujo de datos de la aplicación, manteniendo y actualizando el estado global de los productos. Gestiona la **creación**, **actualización**, **selección** y **eliminación** de productos, comunicándose con el `ProductService` para realizar **operaciones HTTP**.
+  - **Responsabilidades principales**:
+    - **Mantener el estado de los productos**:
+      - `products: Product[]` **guarda** todos los productos cargados desde el **Backend**.
+      - `productSelected: Product` **almacena** temporalmente un producto que se está **editando**.
+    - **Cargar productos al iniciar** (`ngOnInit`):
+      - Al inicializarse, llama al servicio (`findAll()`) para obtener y almacenar los productos.
+    - **Actualizar producto seleccionado** (`onUpdateProductEvent`):
+      - Recibe un producto de un componente hijo (por ejemplo, la **tabla**) y lo guarda en `productSelected` para **edición**.
+    - **Agregar o actualizar un producto** (`addProduct`):
+      - Si el producto tiene `id > 0`, **actualiza** un producto existente mediante el servicio (`update()`).
+      - Si el producto **no tiene ID** (**nuevo producto**), lo **crea** mediante el servicio (`create()`).
+      - En ambos casos, actualiza el array products local para reflejar el cambio.
+    - **Eliminar un producto** (`onRemoveProductEvent`):
+      - Recibe un **ID**, llama al servicio (`remove()`) para **eliminar** el producto, y actualiza el array local eliminándolo.
+
+- `app.component.html`
+  - **Función**: Define la estructura principal de la vista, organizando y conectando los **componentes 'hijos'** (`product-form` y `table-product`). Gestiona la comunicación entre ellos y el `app.component.ts` a través de **inputs** y **outputs**.
+  - Responsabilidades principales:
+  - Mostrar el título:
+    - Imprime la variable `title` que contiene el nombre del proyecto.
+  - Incluir el **componente de formulario** (`product-form`):
+    - **Input** (`[product]`): **recibe** el **producto** seleccionado para editar.
+    - **Output** (`(addProductEvent)`): **escucha** el **evento de creación o actualización** de **producto** y **ejecuta** `addProduct($event)`.
+  - Incluir el **componente de tabla** (`table-product`):
+    - **Input** (`[products]`): **recibe** la **lista de productos** para mostrarlos en una **tabla**.
+    - **Outputs**:
+      - `(updateProductEvent)`: **escucha** cuando se desea **editar un producto** y **ejecuta** `onUpdateProductEvent($event)`.
+      - `(removeProductEvent)`: **escucha** cuando se desea **eliminar un producto** y **ejecuta** `onRemoveProductEvent($event)`.
+
+<h2>form.component.ts / form.component.html</h2>
+<h2>products.component.ts / products.component.html</h2>
+<h2>product.service.ts</h2>
+<h2>product.ts</h2>
 
 <h1 align="center"><img src="https://sweetalert2.github.io/images/SweetAlert2.png" alt="SweetAlert2 Logo" width="240"/></h1>
 <p><b>SweetAlert2</b> es una librería moderna de <b>JavaScript</b> que permite mostrar alertas personalizadas y visualmente atractivas en el navegador. Reemplaza las alertas estándar de <b>JavaScript</b> (alert, confirm, prompt) con cuadros de diálogo animados, configurables y con un diseño más profesional.</p>
