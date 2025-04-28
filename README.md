@@ -161,15 +161,19 @@ src/
       - **Resetea** el objeto `product` creando una nueva instancia vacía (`new Product()`).
         
 - `form.component.html`- **Plantilla del formulario de productos**
-  - **Función**:
+  - **Función**: Define el **formulario** para **Crear** o **Actualizar** **productos**, controlando la **validación de los datos** y **emitiendo el producto** al enviarlo.
   - **Responsabilidades principales**:
-    - Título dinámico:
-    - Formulario (<form>):
-    - Campos del formulario:
-      - Nombre (name):
-      - Descripción (description):
-      - Precio (price):
-    - Botón de envío (button):
+    - **Título dinámico**:
+      - Muestra `"Actualizar"` o `"Crear"` dependiendo de si el producto tiene un id mayor a 0 (`product.id > 0`).
+    - **Formulario** (`<form>`):
+      - Se vincula al método onSubmit(productForm) para enviar los datos.
+      - Utiliza template-driven forms (#productForm="ngForm") para manejar el estado y validación del formulario.
+    - **Campos del formulario**:
+      - **Nombre** (`name`):
+      - **Descripción** (`description`):
+      - **Precio** (`price`):
+    - **Botón de envío** (`button`):
+    - **Validaciones en pantalla**:
 
 <h2>products.component.ts / products.component.html</h2>
 <h2>product.service.ts</h2>
