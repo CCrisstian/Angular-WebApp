@@ -111,9 +111,9 @@ src/
 
 <h1 align="center">Descripción de cada Componente dentro del Proyecto</h1>
 
-<h2>app.component.ts / app.component.html (Componente raíz/padre)</h2>
+<h2>app.component.ts / app.component.html (Componente "raíz" / "padre")</h2>
 
-- `app.component.ts`
+- `app.component.ts` - **Componente "raíz" / "padre"**
   - **Función**: Coordina el flujo de datos de la aplicación, manteniendo y actualizando el estado global de los productos. Gestiona la **creación**, **actualización**, **selección** y **eliminación** de productos, comunicándose con el `ProductService` para realizar **operaciones HTTP**.
   - **Responsabilidades principales**:
     - **Mantener el estado de los productos**:
@@ -129,8 +129,7 @@ src/
       - En ambos casos, actualiza el array products local para reflejar el cambio.
     - **Eliminar un producto** (`onRemoveProductEvent`):
       - Recibe un **ID**, llama al servicio (`remove()`) para **eliminar** el producto, y actualiza el array local eliminándolo.
-
-- `app.component.html`
+- `app.component.html` - **Plantilla del componente "raíz" / "padre"**
   - **Función**: Define la estructura principal de la vista, organizando y conectando los **componentes 'hijos'** (`product-form` y `table-product`). Gestiona la comunicación entre ellos y el `app.component.ts` a través de **inputs** y **outputs**.
   - Responsabilidades principales:
   - Mostrar el título:
@@ -145,6 +144,33 @@ src/
       - `(removeProductEvent)`: **escucha** cuando se desea **eliminar un producto** y **ejecuta** `onRemoveProductEvent($event)`.
 
 <h2>form.component.ts / form.component.html</h2>
+
+- `form.component.ts` - **Componente de formulario**
+  - **Función**: Gestiona el formulario para **crear** o **editar** un **producto**, enviando los datos al **componente 'padre'** (`AppComponent`) cuando el usuario envía el formulario.
+  - **Responsabilidades principales**:
+    - **Recibir un producto para editar** (`@Input()`):
+      - `product: Product` **almacena** el **producto actual**, ya sea uno **nuevo** o uno que se desea **editar**.
+    - **Emitir un producto al 'padre'** (`@Output()`):
+      - `addProductEvent`: evento que **envía** el **producto** completado o **editado** al `AppComponent`.
+    - **Enviar el formulario** (`onSubmit`):
+      - **Si el formulario es válido**:
+        - **Emite** el **producto** mediante `addProductEvent.emit(this.product)`.
+        - **Limpia** el objeto `product`.
+        - **Resetea** el **formulario** (`NgForm`) para dejarlo listo para una nueva entrada.
+    - **Limpiar el formulario** (`clean`):
+      - **Resetea** el objeto `product` creando una nueva instancia vacía (`new Product()`).
+        
+- `form.component.html`- **Plantilla del formulario de productos**
+  - **Función**:
+  - **Responsabilidades principales**:
+    - Título dinámico:
+    - Formulario (<form>):
+    - Campos del formulario:
+      - Nombre (name):
+      - Descripción (description):
+      - Precio (price):
+    - Botón de envío (button):
+
 <h2>products.component.ts / products.component.html</h2>
 <h2>product.service.ts</h2>
 <h2>product.ts</h2>
