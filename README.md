@@ -186,15 +186,41 @@ src/
 
 <h2>products.component.ts / products.component.html</h2>
 
-- `products.component.ts` - Tabla de productos
+- `products.component.ts` - **Tabla de productos**
   - **Función**: Controla el **listado de productos**, permitiendo seleccionar uno para **actualizarlo** o **eliminar** uno.
   - **Responsabilidades principales**:
     - **Título interno**:
+      - Define un `title` estático: `'Listado de Productos'`.
     - **Entrada de datos** (`@Input`):
+      - Recibe el listado de productos (`products: Product[]`) desde el **componente 'padre'** (`AppComponent`).
     - **Salida de eventos** (`@Output`):
+      - `updateProductEvent`: **Emite** un **producto** cuando el usuario desea **Editarlo**.
+      - `removeProductEvent`: **Emite** el **ID** de un **producto** cuando el usuario desea **Eliminarlo**.
     - **Métodos**:
+      - `onUpdateProduct(product: Product)`: **Llama** al **emit** para mandar el **producto seleccionado** para **Actualizarlo**.
+      - `onRemoveProduct(id: number)`: **Llama** al **emit** para mandar el **ID** del **producto** a **Eliminar**. 
 
-- `products.component.html`
+- `products.component.html` - – **Visualización lógica del listado**
+  - **Función**: presenta el listado de productos recibido por `@Input()`, y permite al usuario **Editar** o **Eliminar** cada producto.
+  - **Título del componente**
+    - Muestra el título `"Listado de Productos"` definido en el **TS**.
+  - **Condicional** `@if(products.length > 0)`
+    - **Si hay productos**:
+      - Muestra una tabla.
+      - Recorre el array `products` con `@for`.
+      - Cada fila representa un producto con:
+        - **ID**
+        - **Nombre**
+        - **Descripción**
+        - **Precio**
+        - **Botones** para:
+          - **Actualizar** → **emite** el **producto** completo (`onUpdateProduct(product)`).
+          - **Eliminar** → **emite** solo el **ID** (`onRemoveProduct(product.id)`).
+  - Condicional `@else`
+    - Si no hay productos, muestra un mensaje de advertencia.
+  - 🧠 **Lógica clave**:
+    - La **tabla** solo se muestra si hay productos.
+    - Cada acción (**Actualizar** / **Eliminar**) dispara un evento al **componente 'padre'**, que maneja la lógica con `ProductService`.
 
 <h2>product.service.ts</h2>
 <h2>product.ts</h2>
