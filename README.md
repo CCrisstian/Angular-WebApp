@@ -95,8 +95,8 @@ src/
     │            operaciones HTTP (GET, POST, PUT, DELETE).
     │
     ├── models/
-    │   └── product.ts                                 ← Modelo de datos
-    │        └── Define la estructura de un producto: id, name, description, price.
+        └── product.ts                                 ← Modelo de datos
+             └── Define la estructura de un producto: id, name, description, price.
 ```
 
 <h2>🧩 <ins>Descripción funcional de cada componente</ins></h2>
@@ -159,7 +159,6 @@ src/
         - **Resetea** el **formulario** (`NgForm`) para dejarlo listo para una nueva entrada.
     - **Limpiar el formulario** (`clean`):
       - **Resetea** el objeto `product` creando una nueva instancia vacía (`new Product()`).
-        
 - `form.component.html`- **Plantilla del formulario de productos**
   - **Función**: Define el **formulario** para **Crear** o **Actualizar** **productos**, controlando la **validación de los datos** y **emitiendo el producto** al enviarlo.
   - **Responsabilidades principales**:
@@ -199,7 +198,6 @@ src/
     - **Métodos**:
       - `onUpdateProduct(product: Product)`: **Llama** al **emit** para mandar el **producto seleccionado** para **Actualizarlo**.
       - `onRemoveProduct(id: number)`: **Llama** al **emit** para mandar el **ID** del **producto** a **Eliminar**. 
-
 - `products.component.html` - – **Visualización lógica del listado**
   - **Función**: presenta el listado de productos recibido por `@Input()`, y permite al usuario **Editar** o **Eliminar** cada producto.
   - **Título del componente**
