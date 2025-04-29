@@ -78,8 +78,7 @@ Proyecto: [Backend API RESTful con Java + Spring Boot](https://github.com/CCriss
 src/
 └── app/
     ├── app.component.ts / app.component.html         ← Componente raíz ("Padre")
-    │    └── Orquesta la aplicación: 
-    │        mantiene el estado global de productos y coordina acciones.
+    │    └── Orquesta la aplicación: mantiene el estado global de productos y coordina acciones.
     │        Contiene y comunica con los componentes hijos.
     │
     ├── components/
