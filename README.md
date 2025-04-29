@@ -259,6 +259,22 @@ src/
   
 <h2>product.ts</h2>
 
+- **Función**: Definir la estructura del **modelo** `Product` que representa un **producto** dentro de la aplicación. Este modelo es usado para tipar objetos en **formularios**, **servicios** y **vistas**.
+- **Responsabilidades principales**:
+  - Representar los datos de un producto.
+  - Asegurar consistencia tipada en todo el sistema (**componentes**, **servicios**, **formularios**).
+  - Facilitar el **enlace de datos** (**data binding**) entre la **vista** y el **modelo**.
+- **Propiedades**:
+  - `id!: number;`
+    - **Descripción**: Identificador único del producto.
+    - **Nota**: Se usa `!` (**non-null assertion operator**) para indicar que la propiedad será inicializada luego. **TypeScript**, al ser fuertemente tipado, espera que todas las **propiedades obligatorias** de una **clase** sean **inicializadas en el constructor** o en el **momento de su declaración**. Si no lo están, mostrará un Error. Para evitar este error sin tener que inicializar inmediatamente cada propiedad (por ejemplo, cuando los valores vendrán de un **formulario** o de una **API**), se utiliza el operador `!`.
+  - `name!: string;`
+    - **Descripción**: **Nombre** del **producto**.
+  - `description!: string;`
+    - **Descripción**: Breve **descripción** del **producto**.
+  - `price!: number;`
+    - **Descripción**: **Precio** del **producto**.
+
 <h1 align="center"><img src="https://sweetalert2.github.io/images/SweetAlert2.png" alt="SweetAlert2 Logo" width="240"/></h1>
 <p><b>SweetAlert2</b> es una librería moderna de <b>JavaScript</b> que permite mostrar alertas personalizadas y visualmente atractivas en el navegador. Reemplaza las alertas estándar de <b>JavaScript</b> (alert, confirm, prompt) con cuadros de diálogo animados, configurables y con un diseño más profesional.</p>
 
