@@ -5,6 +5,7 @@
 <h2><ins>Características Principales</ins></h2>
 
 - **Frontend**: Desarrollado con **Angular**, este **Frontend** ofrece una experiencia de usuario robusta y estructurada, ideal para aplicaciones de mediana y gran escala. Se utiliza **Node.js** como entorno de ejecución para gestionar dependencias, compilar el proyecto y facilitar el desarrollo mediante herramientas modernas como **Angular CLI**. La combinación de **Angular** y **Node.js** permite un flujo de trabajo eficiente, escalabilidad y una integración fluida con el **Backend** a través de **servicios HTTP**.
+
 - **Backend**: Construido con **Java** y **Spring Boot**, expone una **API RESTful** que maneja la lógica de negocio y se comunica con una **Base de Datos SQL**. La arquitectura está diseñada siguiendo buenas prácticas como separación de responsabilidades (controladores, servicios y repositorios) e inyección de dependencias, lo que asegura un código mantenible, escalable y fácil de probar.
 
 <h2><ins>Descripción de cada herramienta utilizada en este proyecto</ins></h2>
@@ -43,7 +44,7 @@ npm start
 
 <h3>Frontend sin conexión al Backend</h3>
 
-<img src="https://github.com/user-attachments/assets/c6757b96-03bb-4c88-8ae9-750992e72fa7" style="width:70%;">
+<img src="https://github.com/user-attachments/assets/c6757b96-03bb-4c88-8ae9-750992e72fa7" style="width:80%;">
 
 <h3>Activando el Backend</h3>
 
@@ -52,15 +53,15 @@ Proyecto: [Backend API RESTful con Java + Spring Boot](https://github.com/CCriss
 
 <h3>Frontend con conexión al Backend</h3>
 
-<img src="https://github.com/user-attachments/assets/bd9e193f-d07f-443d-aa07-23c87e1153f6" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/156e8c18-6fb5-404c-86cc-3e23d8b69c73" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/e77ba9a9-539b-4b5a-a3e8-775a11a18706" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/7ad7801e-382b-443f-a4a8-d3fcfd3fe57e" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/31595601-28b6-423a-bbd8-322859a598d6" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/1004480f-80ef-412b-9458-e9108ea17af2" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/eb1be815-916f-4949-8b15-91d4f916233f" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/3b6569be-a7e0-489f-a961-9c9ab8b821bf" style="width:70%;">
-<img src="https://github.com/user-attachments/assets/97b7b415-981f-447f-9ac5-254a8f385b63" style="width:70%;">
+<img src="https://github.com/user-attachments/assets/bd9e193f-d07f-443d-aa07-23c87e1153f6" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/156e8c18-6fb5-404c-86cc-3e23d8b69c73" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/e77ba9a9-539b-4b5a-a3e8-775a11a18706" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/7ad7801e-382b-443f-a4a8-d3fcfd3fe57e" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/31595601-28b6-423a-bbd8-322859a598d6" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/1004480f-80ef-412b-9458-e9108ea17af2" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/eb1be815-916f-4949-8b15-91d4f916233f" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/3b6569be-a7e0-489f-a961-9c9ab8b821bf" style="width:80%;">
+<img src="https://github.com/user-attachments/assets/97b7b415-981f-447f-9ac5-254a8f385b63" style="width:80%;">
 
 ![Captura de pantalla 2025-04-28 163143](https://github.com/user-attachments/assets/0bcdbc82-65d8-4135-96ce-cb04e2e6e545)
 
@@ -162,7 +163,7 @@ src/
     - **Limpiar el formulario** (`clean`):
       - **Resetea** el objeto `product` creando una nueva instancia vacía (`new Product()`).
 
-- `form.component.html`- **Plantilla del formulario de productos**
+- `form.component.html` - **Plantilla del formulario de productos**
   - **Función**: Define el **formulario** para **Crear** o **Actualizar** **productos**, controlando la **validación de los datos** y **emitiendo el producto** al enviarlo.
   - **Responsabilidades principales**:
     - **Título dinámico**:
