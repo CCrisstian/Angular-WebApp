@@ -129,6 +129,7 @@ src/
       - En ambos casos, actualiza el array products local para reflejar el cambio.
     - **Eliminar un producto** (`onRemoveProductEvent`):
       - Recibe un **ID**, llama al servicio (`remove()`) para **eliminar** el producto, y actualiza el array local eliminándolo.
+
 - `app.component.html` - **Plantilla del componente "raíz" / "padre"**
   - **Función**: Define la estructura principal de la vista, organizando y conectando los **componentes 'hijos'** (`product-form` y `table-product`). Gestiona la comunicación entre ellos y el `app.component.ts` a través de **inputs** y **outputs**.
   - Responsabilidades principales:
@@ -159,6 +160,7 @@ src/
         - **Resetea** el **formulario** (`NgForm`) para dejarlo listo para una nueva entrada.
     - **Limpiar el formulario** (`clean`):
       - **Resetea** el objeto `product` creando una nueva instancia vacía (`new Product()`).
+
 - `form.component.html`- **Plantilla del formulario de productos**
   - **Función**: Define el **formulario** para **Crear** o **Actualizar** **productos**, controlando la **validación de los datos** y **emitiendo el producto** al enviarlo.
   - **Responsabilidades principales**:
@@ -197,7 +199,8 @@ src/
       - `removeProductEvent`: **Emite** el **ID** de un **producto** cuando el usuario desea **Eliminarlo**.
     - **Métodos**:
       - `onUpdateProduct(product: Product)`: **Llama** al **emit** para mandar el **producto seleccionado** para **Actualizarlo**.
-      - `onRemoveProduct(id: number)`: **Llama** al **emit** para mandar el **ID** del **producto** a **Eliminar**. 
+      - `onRemoveProduct(id: number)`: **Llama** al **emit** para mandar el **ID** del **producto** a **Eliminar**.
+
 - `products.component.html` - – **Visualización lógica del listado**
   - **Función**: presenta el listado de productos recibido por `@Input()`, y permite al usuario **Editar** o **Eliminar** cada producto.
   - **Título del componente**
