@@ -223,6 +223,40 @@ src/
     - Cada acción (**Actualizar** / **Eliminar**) dispara un evento al **componente 'padre'**, que maneja la lógica con `ProductService`.
 
 <h2>product.service.ts</h2>
+
+- **Función**: Este servicio actúa como **intermediario** entre los **componentes de Angular** y el **Backend**. Gestiona todas las operaciones de red relacionadas con los **productos** (**C.R.U.D.**).
+- **Responsabilidades principales**:
+  - **Recuperar** todos los **productos** del **Backend**.
+  - **Crear** un nuevo **producto**.
+  - **Actualizar** un **producto** existente.
+  - **Eliminar** un **producto** por su **ID**.
+  - Utilizar `HttpClient` para **enviar** y **recibir** datos del **servidor**.
+  - Trabajar con `Observable` para manejar **respuestas asincrónicas**.
+- **Métodos**:
+  - `findAll(): Observable<Product[]>`
+    - **Responsabilidad**: Obtener la lista completa de productos desde el **Backend**.
+    - **Tipo de petición HTTP**: `GET`
+    - **Ruta**: `http://localhost:8080`
+    - **Devuelve**: Un **observable** con un array de objetos `Product`.
+  - `create(product: Product): Observable<Product>`
+    - **Responsabilidad**: **Crear** un nuevo **producto** en el **servidor**.
+    - **Tipo de petición HTTP**: `POST`
+    - **Ruta**: `http://localhost:8080`
+    - **Parámetro**: Un objeto `Product`.
+    - **Devuelve**: Un **observable** con el **producto creado**.
+  - `update(product: Product): Observable<Product>`
+    - **Responsabilidad**: **Actualizar** un **producto** existente en el **servidor**.
+    - **Tipo de petición HTTP**: `PUT`
+    - **Ruta**: `http://localhost:8080/{id}`
+    - **Parámetro**: Un objeto `Product` con su **ID** correspondiente.
+    - **Devuelve**: Un **observable** con el **producto actualizado**.
+  - `remove(id: number): Observable<Product>`
+    - **Responsabilidad**: **Eliminar** un **producto** según su **ID**.
+    - **Tipo de petición HTTP**: `DELETE`
+    - **Ruta**: `http://localhost:8080/{id}`
+    - **Parámetro**: El **ID** del **producto**.
+    - **Devuelve**: Un **observable** con el **producto eliminado**.
+  
 <h2>product.ts</h2>
 
 <h1 align="center"><img src="https://sweetalert2.github.io/images/SweetAlert2.png" alt="SweetAlert2 Logo" width="240"/></h1>
